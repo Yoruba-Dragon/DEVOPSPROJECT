@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    
+<body>
+    <div class="container">
+        <div class="text-center my-5">
+            <h1>Resturants</h1>
+            <hr />
+        </div>
+    <div class="row">
+        {% for game in games %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card mb-5 shadow-sm">
+                   <img src="{{ game.resturant_pic.url }}" alt="{{ game.resturantname }}" class="img-fluid custom-width" />
+                   
+                   <div class="card-body" style="height: 250px;">
+                    <div class="card-title">
+                        <h2>{{ game.resturantname }}</h2>
+                    </div>
+                    <div class="card-text" style="max-height: 150px;">
+                        <p>
+                            
+                            <h6>{{ game.description }}</h6> 
+                            <h6><strong> Location:</strong>{{ game.location }}</h6>
+                            <h6><strong> Opening Time:</strong>{{ game.openingtime }}</h6>
+                            <h6><strong>Closing Time:</strong>{{ game.closingtime }}</h6>
+                        </p>
+                    </div>
+                </div>                   
+                </div>
+            </div>
+            {% endfor %}
+      </div>
+    </div>    
+    </body>
+{% endblock content %}
